@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  /* Titanium Palette */
+  --color-titanium-50: #f5f5f7;
+  --color-titanium-100: #e8e8ed;
+  --color-titanium-200: #d2d2d7;
+  --color-titanium-300: #b0b0b5;
+  --color-titanium-400: #86868b;
+  --color-titanium-500: #6e6e73;
+  --color-titanium-600: #424245;
+  --color-titanium-700: #1d1d1f;
+  --color-titanium-800: #161617;
+  --color-titanium-900: #000000;
+  
+  --color-amber-accent: #f5d142;
+}
+
+@layer base {
+  body {
+    @apply bg-titanium-900 text-titanium-50 antialiased selection:bg-amber-accent/30;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-titanium-800/70 border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-titanium-400;
+  }
+
+  .titanium-gradient {
+    @apply bg-gradient-to-br from-titanium-300 via-titanium-500 to-titanium-700;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-titanium-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-titanium-600 rounded-full hover:bg-titanium-500 transition-colors;
+}
